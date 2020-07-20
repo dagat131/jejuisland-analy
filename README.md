@@ -45,5 +45,43 @@
 - 모든데이터는 [구글 클라우드 빅쿼리](https://cloud.google.com/bigquery/what-is-bigquery?hl=ko)는 적재하였고, 아래와 같이 불러와서 머신러닝 프로젝트 수행
 
 ```python
-
+# Google Drive와 마운트
+from google.colab import drive
+ROOT = '/content/drive'
+drive.mount(ROOT)
 ```
+
+- Project Folder와 연결
+```python
+# Project Folder 연결
+from os.path import join  
+
+MY_GOOGLE_DRIVE_PATH = 'My Drive/Colab Notebooks/hkit_301/data'
+PROJECT_PATH = join(ROOT, MY_GOOGLE_DRIVE_PATH)
+print(PROJECT_PATH)
+```
+
+(4) DACON의 데이터 불러오기 
+```python
+import pandas as pd
+from pandas.io import gbq
+
+# import submission file in Google Drive
+submission = pd.read_csv('submission.csv')
+
+# Connect to Google Cloud API and Upload DataFrame
+submission.to_gbq(destination_table='jeju_data_ver1.submission', 
+                  project_id='jeju-analy', 
+                  if_exists='replace')
+
+# import submission file in Google Drive
+train = pd.read_csv('201901-202003.csv')
+
+# Connect to Google Cloud API and Upload DataFrame
+train.to_gbq(destination_table='jeju_data_ver1.201901_202003_train', 
+                  project_id='jeju-analy', 
+                  if_exists='replace')
+```
+
+## 3. 개발 언어
+- python 

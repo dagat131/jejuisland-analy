@@ -85,3 +85,9 @@ train.to_gbq(destination_table='jeju_data_ver1.201901_202003_train',
 
 ## 3. 개발 언어
 - python 
+
+### (2) Python 버전, 패키지 버전
+
+# 4. 랭킹(07/22 update)
+![0722up](https://user-images.githubusercontent.com/60453691/88167493-e08e5e80-cc53-11ea-8d00-198b280e5594.JPG)
+![0722up_1](https://user-images.githubusercontent.com/60453691/88167501-e421e580-cc53-11ea-8e7c-1e353c7b508f.JPG)
